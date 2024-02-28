@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comment, BlogPost, User } = require('../../models');
+const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const bcrypt = require('bcrypt');
 
@@ -13,6 +13,7 @@ router.post('/', async (req, res) => {
   
       req.session.save(() => {
         req.session.user_id = data.id;
+        req.session.user_name = data.username;
         req.session.logged_in = true;
   
         res.status(200).json(data);
@@ -44,6 +45,7 @@ router.post('/login', async (req, res) => {
   
       req.session.save(() => {
         req.session.user_id = data.id;
+        req.session.user_name = data.username;
         req.session.logged_in = true;
         
         res.json({ user: data, message: 'You are now logged in!' });

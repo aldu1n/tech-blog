@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
           },
           {
             model: Comment,
-            attributes: ['comment', 'blogpost_id', 'user_id'],
+            attributes: ['id', 'comment', 'blogpost_id', 'user_id'],
             include: {
               model: User,
               attributes: ['username'],
