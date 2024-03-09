@@ -1,11 +1,18 @@
-{{!-- {{#each blogpost as |blogpost| }}
-<div>
-    <article>
-        <h4>{{title}}</h4>
-        <div>
-            <p>{{content}}</p>
-            <p>Posted by {{user.username}}</p>
+<h2>All blogposts</h2>
+{{#each blogposts}}
+  <div class="blog-post">
+    <h4>{{title}}</h4>
+    <p>{{content}}</p>
+    <p>Posted by: {{User.username}}</p>
+    <p>Created On: {{createdOn}}</p>
+    <div class="comments">
+      <h5>Comments:</h5>
+      {{#each Comments}}
+        <div class="comment">
+          <p>{{comment}}</p>
+          <p>Commented by: {{User.username}}</p>
         </div>
-    </article>
-</div>
-{{/each}} --}}
+      {{/each}}
+    </div>
+  </div>
+{{/each}}
