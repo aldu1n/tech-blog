@@ -3,30 +3,30 @@ const { Comment, BlogPost, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-router.get('/', async (req, res) => {
-    try {
-      const data = await BlogPost.findAll({
-        attributes: ['id', 'title', 'content', 'createdOn'],
-        include: [
-          {
-            model: User,
-            attributes: ['username'],
-          },
-          {
-            model: Comment,
-            attributes: ['id', 'comment', 'blogpost_id', 'user_id'],
-            include: {
-              model: User,
-              attributes: ['username'],
-            },
-          },
-        ],
-      });
-      res.status(200).json(data);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+// router.get('/', async (req, res) => {
+//     try {
+//       const data = await BlogPost.findAll({
+//         attributes: ['id', 'title', 'content', 'createdOn'],
+//         include: [
+//           {
+//             model: User,
+//             attributes: ['username'],
+//           },
+//           {
+//             model: Comment,
+//             attributes: ['id', 'comment', 'blogpost_id', 'user_id'],
+//             include: {
+//               model: User,
+//               attributes: ['username'],
+//             },
+//           },
+//         ],
+//       });
+//       res.status(200).json(data);
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//   });
 
 
 router.post('/', withAuth, async (req, res) => {

@@ -27,8 +27,9 @@ router.get('/', withAuth, async (req, res) => {
       });
       res.status(200).json(data);
 
-      const blogposts = data.map(blogpost => blogpost.get ({plain: true}));
-      res.render('dashboard', {blogposts, loggedIn: req.session.logged_in, userName: req.session.user_name});
+    console.log(data);
+      const blogposts = data.map((blogpost) => blogpost.get ({plain: true}));
+      res.render('homepage', {blogposts, loggedIn: req.session.logged_in, username: req.session.user_name});
 
     } catch (err) {
       res.status(500).json(err);

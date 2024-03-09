@@ -21,9 +21,8 @@ router.get('/', async (req, res) => {
           },
         ],
       });
-      res.status(200).json(data);
 
-      const blogposts = data.map(blogpost => blogpost.get ({plain: true}));
+      const blogposts = data.map((blogpost) => blogpost.get ({plain: true}));
       res.render('homepage', {blogposts, loggedIn: req.session.logged_in});
 
     } catch (err) {
