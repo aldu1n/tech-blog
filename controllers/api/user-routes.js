@@ -3,6 +3,9 @@ const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const bcrypt = require('bcrypt');
 
+router.get('/login', async (req, res) => {
+  res.render('login');
+});
 
 router.post('/', async (req, res) => {
     try {
