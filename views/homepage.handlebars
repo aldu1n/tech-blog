@@ -1,18 +1,15 @@
-<h2>All blogposts</h2>
 {{#each blogposts}}
-  <div class="blog-post">
-    <h4>{{title}}</h4>
-    <p>{{content}}</p>
-    <p>Posted by: {{User.username}}</p>
-    <p>Created On: {{createdOn}}</p>
-    <div class="comments">
-      <h5>Comments:</h5>
+<div class="card" style="width: 50%;">
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{User.username}}</h6>
+    <p class="card-text">{{content}}</p>
+    <p class="card-text">{{createdOn}}</p>
       {{#each Comments}}
-        <div class="comment">
-          <p>{{comment}}</p>
-          <p>Commented by: {{User.username}}</p>
-        </div>
+    <p class="card-text">{{comment}}</p>
+    <p class="card-text">Commented by: {{User.username}}</p>
       {{/each}}
     </div>
-  </div>
+</div>
 {{/each}}
+
